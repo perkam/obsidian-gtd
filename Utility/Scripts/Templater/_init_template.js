@@ -102,6 +102,21 @@ function main(target) {
     }
   }
 
+
+  /**
+   * delete current line, or false if not in editing mode
+   * @returns {boolean}
+   */
+  target.deleteCurrentLine = function () {
+    if (!target.isEditMode()) {
+      // Not in edit mode, current line is unknowable
+      return false
+    } else {
+      const lineNumber = target.view.editor.getCursor().line
+      return target.view.editor.exec('deleteLine')
+    }
+  }
+
   target.goToFile = async function (path) {
     const file = app.vault.getAbstractFileByPath(path)
     if (path !== target.file.path) {
@@ -109,4 +124,5 @@ function main(target) {
     }
   }
 }
+
 module.exports = main

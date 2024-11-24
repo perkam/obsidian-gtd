@@ -3,7 +3,10 @@
  * Docs: https://github.com/alangrainger/obsidian-gtd/blob/main/00%20Documentation/Task%20menu%20template.md#archiveremove-completed-tasks
 */
 const completedTasksNote = '01 Project Management/🗄️ Completed tasks.md'
+const projectsDirectory = '01 Project Management/Projects/'
+const somedayProjectsDirectory = '01 Project Management/Projects/💤 Someday'
 const taskLinePattern = /^[ \t]*- \[[ x]\]/
+const tp = app.plugins.plugins['templater-obsidian'].templater.current_functions_object
 
 const isLineATask = (line) => line.match(taskLinePattern) !== null
 
@@ -26,6 +29,21 @@ const toggleIndicator = (note, indicator) => {
     // append indicator to end of line
     note.setCurrentLine(`${line} ${indicator}`)
     return
+  }
+}
+
+async function chooseProject() {
+  const folders = this.app.vault.getAllLoadedFiles().map(file => file.path).filter(path => path.contains(projectsDirectory));
+  const folderChoicePath = await tp.system.suggester(
+    folders.map(folder => folder.replace(/01 Project Management\/Projects\/(💤 Someday\/)?/, '')
+    .replace('.md',  '')), 
+    folders
+  )
+
+  if (folderChoicePath) {
+    return folderChoicePath
+  } else {
+    return null
   }
 }
 
@@ -59,6 +77,10 @@ class main {
       {
         label: 'Archive/Remove completed tasks',
         function: this.removeCompletedTasks
+      },
+      {
+        label: 'Move to project',
+        function: this.moveToProject
       }
     ]
 
@@ -152,6 +174,27 @@ class main {
 
     // Remove tasks from the current note
     await note.setContents(currentNoteContents.replace(taskRegex, ''))
+  }
+
+  async moveToProject(note) {
+    if (!note.isEditMode()) {
+      // Not in editing mode, so it's uncertain which task we want to affect
+      return
+    }
+
+    const line = note.getCurrentLine()
+    if (!isLineATask(line)) {
+      return
+    }
+
+    const project = await chooseProject()
+    console.log(project)
+    if (!project) {
+      return
+    }
+    let projectNoteContent = await note.getContents(project)
+    note.setContents(projectNoteContent + "\n" + line, project).then()
+    note.deleteCurrentLine()
   }
 }
 module.exports = main
