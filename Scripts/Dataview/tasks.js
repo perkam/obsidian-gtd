@@ -153,7 +153,7 @@ const timeEstimateOrder = [
 const timeEstimateHeaders = {
   'Waiting On': 'Waiting On',
   '5 Minutes': '⚪️5 Minutes',
-  '🟢15 Minutes': '🟢15 Minutes',
+  '15 Minutes': '🟢15 Minutes',
   '30 Minutes': '🟡30 Minutes',
   '60 Minutes': '🟠60 Minutes',
   '90 Minutes': '🔴90 Minutes',

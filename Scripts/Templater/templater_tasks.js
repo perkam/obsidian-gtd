@@ -3,8 +3,8 @@
  * Docs: https://github.com/alangrainger/obsidian-gtd/blob/main/00%20Documentation/Task%20menu%20template.md#archiveremove-completed-tasks
 */
 const completedTasksNote = '01 Project Management/🗄️ Completed tasks.md'
-const projectsDirectory = '01 Project Management/Projects/'
-const somedayProjectsDirectory = '01 Project Management/Projects/💤 Someday'
+const projectsDirectory = '01 Project Management/Projects'
+const projectReferencesDirectory = '02 References/Projects'
 const taskLinePattern = /^[ \t]*- \[[ x]\]/
 const tp = app.plugins.plugins['templater-obsidian'].templater.current_functions_object
 
@@ -81,6 +81,10 @@ class main {
       {
         label: 'Move to project',
         function: this.moveToProject
+      },
+      {
+        label: 'Open reference note',
+        function: this.openReferenceNote
       }
     ]
 
@@ -195,6 +199,25 @@ class main {
     let projectNoteContent = await note.getContents(project)
     note.setContents(projectNoteContent + "\n" + line, project).then()
     note.deleteCurrentLine()
+  }
+
+  async openReferenceNote(note) {
+    const name = note.file.name
+    const directory = note.file.folder
+    if(directory === projectReferencesDirectory) {
+      const fullPath = `${projectsDirectory}/🛠Active/${name}.md`
+      const pathTFile = app.vault.getAbstractFileByPath(fullPath);
+      console.log(fullPath)
+      app.workspace.getLeaf(false).openFile(pathTFile);
+      return
+    }
+    const fullPath = `${projectReferencesDirectory}/${name}.md`
+    if (await tp.file.exists(fullPath)) {
+      const pathTFile = app.vault.getAbstractFileByPath(fullPath);
+      app.workspace.getLeaf(false).openFile(pathTFile);
+      return
+    }
+    await tp.file.create_new(tp.file.find_tfile('! Default note.md'), `${name}`, true, projectReferencesDirectory)
   }
 }
 module.exports = main

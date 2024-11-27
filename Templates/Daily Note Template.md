@@ -9,6 +9,11 @@ tags:: [[+Daily Notes]]
 
 ---
 # 🔍Review
+- [ ] Check calendar
+- [ ] Check email
+- [ ] Check slack
+- [ ] Check [GitHub Notifications](https://github.com/notifications)
+- [ ] Process [📩 Inbox](../../01%20Project%20Management/📩%20Inbox.md)
 
 ---
 # 📝 Notes
