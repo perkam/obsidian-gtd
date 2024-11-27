@@ -10,7 +10,7 @@ const globalExclude = {
     'Utility',
     '01 Project Management/Projects/💤 Someday',
     '01 Project Management/📩 Inbox',
-    '01 Project management/Projects/✔ Completed',
+    '01 Project Management/Projects/✔ Completed',
     '03 Daily Notes',
     '02 References'
   ],
