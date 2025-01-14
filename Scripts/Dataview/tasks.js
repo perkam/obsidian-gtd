@@ -14,7 +14,8 @@ const globalExclude = {
     '01 Project Management/📩 Inbox',
     '01 Project Management/Projects/✔ Completed',
     '03 Daily Notes',
-    '02 References'
+    '02 References',
+    'People'
   ],
   tags: [
     '#exclude-master-tasklist',
