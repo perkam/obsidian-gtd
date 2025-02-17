@@ -8,7 +8,6 @@ template_destination_folder: People
 # <% tp.file.title.replace('👤', '') %>
 
 
-
 ```dataviewjs
 await dv.view("Scripts/Dataview/mentions-table", 3)
 ```
