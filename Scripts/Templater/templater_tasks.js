@@ -2,7 +2,7 @@
  * Set this to be the full path for the note where you want to store your completed tasks
  * Docs: https://github.com/alangrainger/obsidian-gtd/blob/main/00%20Documentation/Task%20menu%20template.md#archiveremove-completed-tasks
 */
-const completedTasksNote = '01 Project Management/🗄️ Completed tasks.md'
+const completedTasksNote = '01 Project Management/Projects/✔ Completed/🗄️ Completed tasks.md'
 const projectsDirectory = '01 Project Management/Projects'
 const projectReferencesDirectory = '02 References/Projects'
 const taskLinePattern = /^[ \t]*- \[[ x]\]/

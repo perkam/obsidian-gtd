@@ -8,6 +8,7 @@ tags:: [[+Daily Notes]]
 << [[Timestamps/<% tp.date.now("YYYY", -1) %>/<% tp.date.now("MM-MMMM", -1) %>/<% tp.date.now("YYYY-MM-DD-dddd", -1) %>|Yesterday]] | [[Timestamps/<% tp.date.now("YYYY", 1) %>/<% tp.date.now("MM-MMMM", 1) %>/<% tp.date.now("YYYY-MM-DD-dddd", 1) %>|Tomorrow]] >>
 
 ---
+<%* if (tp.app.vault.getName() != "gtd") { %>
 # 🔍Review
 - [ ] Check calendar
 - [ ] Check email
@@ -16,6 +17,7 @@ tags:: [[+Daily Notes]]
 - [ ] Process [📩 Inbox](../../01%20Project%20Management/📩%20Inbox.md)
 
 ---
+<%* } %>
 # 📝 Notes
 
 ---
