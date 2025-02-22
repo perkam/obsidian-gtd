@@ -11,6 +11,7 @@ const globalExclude = {
   folders: [
     'Utility',
     '01 Project Management/Projects/💤 Someday',
+    '01 Project Management/Projects/🧊 Frozen',
     '01 Project Management/📩 Inbox',
     '01 Project Management/Projects/✔ Completed',
     '03 Daily Notes',
@@ -204,4 +205,4 @@ if (noNextAction.length) {
 taskList(Groups.Priority, '🔼 Priority',)
 taskList(Groups.Waiting, '⏳ Waiting on...')
 taskList(Groups.Normal, '✅ Next actions')
-taskList(Groups.Someday, '💤 Someday')
+//taskList(Groups.Someday, '💤 Someday')
