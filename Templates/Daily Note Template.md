@@ -10,6 +10,7 @@ tags:: [[+Daily Notes]]
 ---
 <%* if (tp.app.vault.getName() != "gtd") { %>
 # 🔍Review
+
 - [ ] Check calendar
 - [ ] Check email
 - [ ] Check slack
@@ -18,9 +19,30 @@ tags:: [[+Daily Notes]]
 
 ---
 <%* } %>
+
 # 📝 Notes
 
 ---
+
+## Overdue
+```tasks
+not done
+scheduled before <% tp.date.now("YYYY-MM-DD") %> OR due before <% tp.date.now("YYYY-MM-DD") %>
+hide task count
+```
+## Scheduled today
+```tasks
+not done
+scheduled on <% tp.date.now("YYYY-MM-DD") %>
+hide task count
+```
+## Due in the next two weeks
+```tasks
+not done
+due after <% tp.date.now("YYYY-MM-DD") %>
+due before <% tp.date.now("YYYY-MM-DD", +14) %>
+hide task count
+```
 ### Notes created today
 ```dataview
 List FROM "" WHERE file.cday = date("<%tp.date.now("YYYY-MM-DD")%>") SORT file.ctime asc
