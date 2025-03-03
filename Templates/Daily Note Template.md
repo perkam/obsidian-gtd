@@ -27,13 +27,13 @@ tags:: [[+Daily Notes]]
 ## Overdue
 ```tasks
 not done
-scheduled before <% tp.date.now("YYYY-MM-DD") %> OR due before <% tp.date.now("YYYY-MM-DD") %>
+(scheduled before <% tp.date.now("YYYY-MM-DD") %>) OR (due before <% tp.date.now("YYYY-MM-DD") %>)
 hide task count
 ```
 ## Scheduled today
 ```tasks
 not done
-scheduled on <% tp.date.now("YYYY-MM-DD") %>
+(scheduled on <% tp.date.now("YYYY-MM-DD") %>) OR (due on <% tp.date.now("YYYY-MM-DD") %>)
 hide task count
 ```
 ## Due in the next two weeks
