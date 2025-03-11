@@ -7,7 +7,9 @@ template_destination_folder: 01 Project Management/Projects
 ```dataviewjs
 dv.view('project-progress')
 ```
-
+```dataviewjs
+dv.view('toc')
+```
 ## Todo
 - [ ] 
 
