@@ -16,13 +16,19 @@ description includes 🔼
 hide task count
 ```
 
-## 📅 Due/Scheduled Today
+## 📅 Due/Scheduled Today and Due in 2 weeks
 ```tasks
 not done  
-(due on <% tp.date.now("YYYY-MM-DD") %>) OR (scheduled on <% tp.date.now("YYYY-MM-DD") %>)
+(due on <% tp.date.now("YYYY-MM-DD") %>) OR (scheduled on <% tp.date.now("YYYY-MM-DD") %>) OR
+(due before <% tp.date.now("YYYY-MM-DD") %>) OR (scheduled before <% tp.date.now("YYYY-MM-DD") %>)
 hide task count
 ```
-
+```tasks
+not done
+due after <% tp.date.now("YYYY-MM-DD") %>
+due before <% tp.date.now("YYYY-MM-DD", +14) %>
+hide task count
+```
 ## 📝 Notes & Thoughts
 
 
