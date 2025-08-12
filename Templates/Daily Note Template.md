@@ -25,7 +25,7 @@ tags:: [[+Daily Notes]]
 - Umyć twarz i posmarować
 - Zjeść śniadanie
 - Wstawić pranie
-- Zrobić lisę na dzisiaj
+- Zrobić listę na dzisiaj
 ---
 <%* } %>
 
@@ -50,6 +50,3 @@ hide task count
 ```
 ## 📝 Notes & Thoughts
 
-
-## 📥 Quick Capture
-<!-- Dump thoughts here, process later -->
