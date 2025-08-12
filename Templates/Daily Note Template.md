@@ -8,6 +8,26 @@ tags:: [[+Daily Notes]]
 << [[03 Daily Notes/<% tp.date.now("YYYY", -1) %>/<% tp.date.now("MM-MMMM", -1) %>/<% tp.date.now("YYYY-MM-DD-dddd", -1) %>|Yesterday]] | [[03 Daily Notes/<% tp.date.now("YYYY", 1) %>/<% tp.date.now("MM-MMMM", 1) %>/<% tp.date.now("YYYY-MM-DD-dddd", 1) %>|Tomorrow]] >>
 
 ---
+# ⛅ Start of the day
+<%* if (tp.app.vault.getName() != "gtd") { %>
+- Check calendar
+- Check email
+- Check slack
+- Check [GitHub Notifications](https://github.com/notifications)
+- Process [📩 Inbox](../../01%20Project%20Management/📩%20Inbox.md)
+<%* } %>
+<%* if (tp.app.vault.getName() == "gtd") { %>
+- Zważyć się
+- Wypić szklanke wody
+- Wziąć leki
+- Przepakować zmywarke
+- Posprzątać w kuwecie
+- Umyć twarz i posmarować
+- Zjeść śniadanie
+- Wstawić pranie
+- Zrobić lisę na dzisiaj
+---
+<%* } %>
 
 ## 🔼 Priority Tasks
 ```tasks
