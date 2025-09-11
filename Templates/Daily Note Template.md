@@ -8,7 +8,7 @@ tags:: [[+Daily Notes]]
 << [[03 Daily Notes/<% tp.date.now("YYYY", -1) %>/<% tp.date.now("MM-MMMM", -1) %>/<% tp.date.now("YYYY-MM-DD-dddd", -1) %>|Yesterday]] | [[03 Daily Notes/<% tp.date.now("YYYY", 1) %>/<% tp.date.now("MM-MMMM", 1) %>/<% tp.date.now("YYYY-MM-DD-dddd", 1) %>|Tomorrow]] >>
 
 ---
-# ⛅ Start of the day
+## ⛅ Start of the day
 <%* if (tp.app.vault.getName() != "gtd") { %>
 - Check calendar
 - Check email
@@ -20,14 +20,23 @@ tags:: [[+Daily Notes]]
 - Zważyć się
 - Wypić szklanke wody
 - Wziąć leki
-- Przepakować zmywarke
-- Posprzątać w kuwecie
 - Umyć twarz i posmarować
 - Zjeść śniadanie
 - Wstawić pranie
-- Zrobić listę na dzisiaj
 ---
 <%* } %>
+
+## 🌕 End of the day
+<%* if (tp.app.vault.getName() != "gtd") { %>
+<%* } %>
+<%* if (tp.app.vault.getName() == "gtd") { %>
+- Przepakować zmywarke
+- Posprzątać w kuwecie
+- Umyć twarz i posmarować
+- Zrobić listę na jutro
+---
+<%* } %>
+
 
 ## 🔼 Priority Tasks
 ```tasks
