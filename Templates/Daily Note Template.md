@@ -9,36 +9,26 @@ tags:: [[+Daily Notes]]
 
 ---
 ## ⛅ Start of the day
-- [ ] Start of the day [scheduled:: <% tp.date.now("YYYY-MM-DD") %>]
-<%* if (tp.app.vault.getName() != "gtd") { %>
-  - [ ] Check calendar
-  - [ ] Check email
-  - [ ] Check slack
-  - [ ] Check [GitHub Notifications](https://github.com/notifications)
-  - [ ] Process [📩 Inbox](../../01%20Project%20Management/📩%20Inbox.md)
-<%* } %>
-<%* if (tp.app.vault.getName() == "gtd") { %>
-  - [ ] Zważyć się
-  - [ ] Wypić szklanke wody
-  - [ ] Wziąć leki
-  - [ ] Umyć twarz i posmarować
-  - [ ] Zjeść śniadanie
-  - [ ] Wstawić pranie
+- [ ] Start of the day [scheduled:: <% tp.date.now("YYYY-MM-DD") %>]<%*
+const isGtd = tp.app.vault.getName() === "gtd";
+const lines = isGtd
+  ? [
+    "    - [ ] Zważyć się",
+    "    - [ ] Wypić szklanke wody",
+    "    - [ ] Wziąć leki",
+    "    - [ ] Umyć twarz i posmarować",
+    "    - [ ] Zjeść śniadanie",
+  ]
+  : [
+    "    - [ ] Check calendar",
+    "    - [ ] Check email",
+    "    - [ ] Check slack",
+    "    - [ ] Check [GitHub Notifications](https://github.com/notifications)",
+    "    - [ ] Process [📩 Inbox](../../01%20Project%20Management/📩%20Inbox.md)"
+  ];
+tR += "\n" + lines.join("\n");
+%>
 ---
-<%* } %>
-
-## 🌕 End of the day
-- [ ] End of the day [scheduled:: <% tp.date.now("YYYY-MM-DD") %>]
-<%* if (tp.app.vault.getName() != "gtd") { %>
-  - [ ] Write down what was done today in daily notes.
-<%* } %>
-<%* if (tp.app.vault.getName() == "gtd") { %>
-  - [ ] Przepakować zmywarke
-  - [ ] Posprzątać w kuwecie
-  - [ ] Umyć twarz i posmarować
-  - [ ] Zrobić listę na jutro
----
-<%* } %>
 
 ## 🔼 Priority Tasks
 ```tasks
@@ -51,7 +41,7 @@ show tree
 
 ## 📅 Due/Scheduled Today and Due in 2 weeks
 ```tasks
-not done  
+not done
 (due on <% tp.date.now("YYYY-MM-DD") %>) OR (scheduled on <% tp.date.now("YYYY-MM-DD") %>) OR (due before <% tp.date.now("YYYY-MM-DD") %>) OR (scheduled before <% tp.date.now("YYYY-MM-DD") %>)
 hide task count
 short mode
@@ -67,4 +57,6 @@ short mode
 show tree
 ```
 ## 📝 Notes & Thoughts
+- [ ] <% tp.date.now("YYYY-MM-DD") %> [scheduled:: <% tp.date.now("YYYY-MM-DD") %>]
+  - [ ] First task
 
